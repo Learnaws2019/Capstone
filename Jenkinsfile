@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    node {
+      label 'Windows'
+    }
+
+  }
   stages {
     stage('Test') {
       steps {
@@ -7,7 +12,7 @@ pipeline {
       }
     }
 
-    stage('') {
+    stage('error') {
       steps {
         bat(script: '@echo off  SET a = Hello  SET b = World  SET c=%a% and %b%  echo %c%', returnStatus: true, returnStdout: true)
         echo 'Testing Batch File'
