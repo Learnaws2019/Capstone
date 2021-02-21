@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Create Kube Config File') {
       steps {
-        withAWS(region: 'us-east-2', credentials: 'awsid') {
+        withAWS(region: 'us-east-2', credentials: 'aws_id') {
           sh'''
             aws s3 ls
             '''
