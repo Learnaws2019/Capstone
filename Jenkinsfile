@@ -11,7 +11,7 @@ pipeline {
       steps {
         withAWS(region: 'us-east-2', credentials: 'aws_id') {
           sh '''
-           aws ec2 describe-tags
+       aws eks --region us-east-2 update-kubeconfig --name test1
             '''
         }
 
