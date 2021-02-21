@@ -6,14 +6,17 @@ pipeline {
         echo 'My First Pipeline'
       }
     }
+
     stage('Create Kube Config File') {
       steps {
         withAWS(region: 'us-east-2', credentials: 'awsid') {
-          sh'''
+          sh '''
             aws s3 ls
             '''
-		    }
-	    }
+        }
+
+      }
     }
+
   }
 }
