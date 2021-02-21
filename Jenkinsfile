@@ -12,10 +12,9 @@ pipeline {
         withAWS(region: 'us-east-2', credentials: 'aws_id') {
           sh '''
        aws eks --region us-east-2 update-kubeconfig --name test1
-            '''
+       aws s3 ls'''
         }
 
-        sh 'aws s3 ls'
       }
     }
 
