@@ -11,7 +11,7 @@ pipeline {
       steps {
         withAWS(region: 'us-east-2', credentials: 'aws_id') {
           sh '''
-            aws s3 ls
+           aws ec2 describe-tags
             '''
         }
 
