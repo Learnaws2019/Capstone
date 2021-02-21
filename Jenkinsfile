@@ -9,7 +9,9 @@ pipeline {
     stage('Create Kube Config File') {
       steps {
         withAWS(region: 'us-east-2', credentials: 'awsid') {
-          s3Upload(file: 'generate.html', bucket: 'nouran.portfolio', path: 'generate.html')
+          sh'''
+            aws s3 ls
+            '''
 		    }
 	    }
     }
