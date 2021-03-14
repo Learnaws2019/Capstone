@@ -3,15 +3,17 @@ pipeline {
   stages {
     stage('Setup') {
       steps {
-        sh '''echo "Multiline shell steps works too"
-ls -lah     '''
+        sh '''echo "Setup"
+              ls -lst    
+	   '''
       }
     }
 
     stage('Lint') {
       steps {
         sh '''hadolint Dockerfile
-cat Dockerfile'''
+              cat Dockerfile
+	   '''
       }
     }
 
@@ -21,14 +23,14 @@ cat Dockerfile'''
       }
       steps {
         sh '''#!/usr/bin/env bash
-# Step 1:
-# Build image and add a descriptive tag
-docker build --tag=amitfinalproject .
+	# Step 1:
+	# Build image and add a descriptive tag
+	docker build --tag=amitfinalproject .
 
 
-# Step 2: 
-# List docker images
-docker image ls'''
+	# Step 2: 
+	# List docker images
+	docker image ls'''
       }
     }
 
@@ -38,13 +40,12 @@ docker image ls'''
           withDockerRegistry([ credentialsId: "dockerhub", url: "" ]){
             sh'''
 
-dockerpath="amitshr90/amitfinalproject"
+		dockerpath="amitshr90/amitfinalproject"
 
+		docker login && docker image tag amitfinalproject $dockerpath
 
-docker login && docker image tag amitfinalproject $dockerpath
-
-docker image push $dockerpath
-'''
+		docker image push $dockerpath
+		'''
 
           }
         }
@@ -67,7 +68,7 @@ docker image push $dockerpath
                   kubectl get pod -o wide
                   kubectl apply -f service.yml
                   kubectl get services
-				  '''
+	     '''
         }
 
       }
