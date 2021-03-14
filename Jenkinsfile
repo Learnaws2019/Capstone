@@ -60,6 +60,7 @@ docker image push $dockerpath
         withAWS(region: 'us-east-2', credentials: 'aws_id') {
           sh '''
                   aws eks --region us-east-2 update-kubeconfig --name finalprojectcluster2
+                  kubectl set image deployments/amitfinalproject amitfinalproject=amitshr90/amitfinalproject:latest                  
                   kubectl apply -f deployment.yml
                   kubectl get nodes
                   kubectl get deployment
