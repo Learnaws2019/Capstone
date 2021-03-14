@@ -66,7 +66,6 @@ docker image push $dockerpath
                   kubectl get deployment
                   kubectl get pod -o wide
                   kubectl apply -f service.yml
-                  
                   kubectl get services
 				  '''
         }
