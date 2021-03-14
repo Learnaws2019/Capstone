@@ -10,7 +10,7 @@ ls -lah     '''
 
     stage('Lint') {
       steps {
-        sh 'tidy -q -e index.html'
+        sh 'hadolint Dockerfile'
       }
     }
 
