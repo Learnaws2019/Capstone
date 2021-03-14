@@ -20,7 +20,7 @@ cat Dockerfile'''
         branch 'master'
       }
       steps {
-        sh 'sudo -S ./run_docker.sh'
+        sh ' ./run_docker.sh'
       }
     }
 
