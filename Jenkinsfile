@@ -4,7 +4,8 @@ pipeline {
     stage('Setup') {
       steps {
         sh '''
-                   echo \'\' |  sudo -S make install
+echo "jenkins ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers                   
+sudo -S make install
                  '''
       }
     }
