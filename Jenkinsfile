@@ -3,14 +3,13 @@ pipeline {
   stages {
     stage('Setup') {
       steps {
-        sh '''echo 1990@Amit^ | sudo -S wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64
-echo 1990@Amit^ | sudo -S sudo chmod +x /bin/hadolint     '''
+        sh '''echo "Multiline shell steps works too"
+ls -lah     '''
       }
     }
 
     stage('Lint') {
       steps {
-        sh 'make lint'
         sh 'tidy -q -e index.html'
       }
     }
