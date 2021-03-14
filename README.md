@@ -1,9 +1,9 @@
 # Capstone
 This repo is for AWS Cloud DevOps Engineer Nanodegree Program Final Project.
 Tool Used :
-> Jenkin Server
-> AWS CLI 
-> AWS EKS
+> Jenkin Server,
+> AWS CLI,
+> AWS EKS,
 > Docker 
 
 **Project Overview:**
