@@ -36,7 +36,16 @@ docker image ls'''
       steps {
         script {
           withDockerRegistry([ credentialsId: "dockerhub", url: "" ]){
-            sh "./upload_docker.sh"
+
+            dockerpath="amitshr90/amitfinalproject"
+
+
+            docker logout
+            docker login && docker image tag amitfinalproject $dockerpath
+
+            docker image push $dockerpath
+
+
           }
         }
 
