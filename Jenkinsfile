@@ -10,7 +10,8 @@ ls -lah     '''
 
     stage('Lint') {
       steps {
-        sh 'hadolint Dockerfile'
+        sh '''hadolint Dockerfile
+cat Dockerfile'''
       }
     }
 
