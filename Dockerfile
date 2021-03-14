@@ -2,7 +2,7 @@
 FROM nginx:stable
 
 #step2
-COP ./index.html /usr/share/nginx/html/index.html
+COPY ./index.html /usr/share/nginx/html/index.html
 
 #FROM python:3.7.3-stretch
 ## Step 1:
