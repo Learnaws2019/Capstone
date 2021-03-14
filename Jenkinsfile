@@ -4,7 +4,7 @@ pipeline {
     stage('Setup') {
       steps {
         sh '''
-                   make install
+                   sudo make install
                  '''
       }
     }
