@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: amitfinalproject
+  namespace: default
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: amitfinalproject
+  strategy:
+    rollingUpdate:
+      maxSurge: 50%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: amitfinalproject
+    spec:
+      containers:
+        - name: amitfinalproject
+          image: amitshr90/amitfinalproject
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80

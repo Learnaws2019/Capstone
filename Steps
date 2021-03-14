@@ -1,3 +1,31 @@
 Jenkin:
 
-eksctl create cluster --name test1 --version 1.17 --node-type t2.small --nodes 3 --nodes-min 1 --nodes-max 4 --managed  
+eksctl create cluster --name finalprojectcluster --version 1.17 --node-type t2.small --nodes 3 --nodes-min 1 --nodes-max 4 --managed  
+
+curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.18.9/2020-11-02/bin/linux/amd64/kubectl
+
+aws eks --region us-east-2 update-kubeconfig --name finalprojectcluster
+ 
+sudo usermod -aG docker jenkins                                                                                                                                    
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+$ sudo groupadd docker
+$ sudo usermod -aG docker jenkins
+$ chmod root:docker /var/run/docker.sock
+
+eksctl create cluster \
+--name finalprojectcluster \
+--region us-east-2 \
+--with-oidc \
+--ssh-access \
+--ssh-public-key udacity \
+--managed
+
+
+ubuntu:/usr/local/bin $ aws configure
+AWS Access Key ID [****************3OP7]: ^C
+ubuntu:/usr/local/bin $ cd /home/ubuntu/.aws
+ubuntu:~/.aws $ ls
+credentials
+ubuntu:~/.aws $ cat credentials 
+# Do not modify this file, if this
